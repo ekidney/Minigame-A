@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneManager : MonoBehaviour
+public class GameFaceManager : MonoBehaviour
 {
 
-    public static sceneManager Instance;
+    public static GameFaceManager Instance;
     private newRoom _usersRoom;
 
 

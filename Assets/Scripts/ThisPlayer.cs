@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThisPlayer : gameThings
+public class ThisPlayer : GameThings
 {
     // Player's current health
     public int health;
@@ -23,6 +23,6 @@ public class ThisPlayer : gameThings
     public float speed;
 
     // Player's current weapon
-    public playerObjects currentWeapon;
+    public PlayerObjects currentWeapon;
 
 }
