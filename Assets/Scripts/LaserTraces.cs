@@ -8,7 +8,7 @@ public class LaserTraces : PlayerObjects
     public float speed = 20f;
 
     // The amount of time the bullet can exist before it is destroyed
-    public float lifetime = 2f;
+    public float lifetime = 10f;
 
     public int damage = 1;
 
@@ -36,10 +36,12 @@ public class LaserTraces : PlayerObjects
     {
         // Move the bullet
         rb.MovePosition(transform.position + direction * speed * Time.deltaTime);
+        Debug.Log("lifetiume "+lifetime);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("collision");
         // Check if the bullet hit an object with a "Damageable" tag
         if ((collision.collider.CompareTag("Damageable")))
         {

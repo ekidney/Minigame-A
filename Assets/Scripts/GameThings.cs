@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class GameThings : MonoBehaviour
 {
+
+    public GameObject singletonInstance;
+    private GameFaceManager gameFaceManager;
+
+    private void Start()
+    {
+        gameFaceManager = GetComponent<GameFaceManager>();
+
+    }
     public virtual void Spawn(GameObject prefabToSpawn, Vector3 position, Quaternion rotation)
 
     {
@@ -25,5 +34,15 @@ public class GameThings : MonoBehaviour
     {
         
     }
+
+    public void GiveExperience(float expAmount)
+    {
+        float temp = gameFaceManager.userExp;
+        temp = temp + expAmount;
+        gameFaceManager.userExp = temp;
+
+
+    }
+
 
 }

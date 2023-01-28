@@ -11,7 +11,7 @@ public class Shooter : PlayerObjects
     public Transform spawnPoint;
 
     // The rate at which the gun can fire
-    public float fireRate = 0.1f;
+    public float fireRate = 0.01f;
 
     public int ammo = 30;
 
@@ -30,6 +30,7 @@ public class Shooter : PlayerObjects
     {
         if (Input.GetButton("Fire1"))
         {
+            Debug.Log("fire input" + Time.time +" next " + nextFireTime);
             if (ammo > 0 && Time.time >= nextFireTime)
             {
                 // Fire the gun
@@ -46,6 +47,7 @@ public class Shooter : PlayerObjects
 
     private void Fire()
     {
+        Debug.Log("FIRE");
         // Spawn the bullet
         GameObject _projectile = Instantiate(bulletPrefab, spawnPoint.position, spawnPoint.rotation);
 
@@ -56,7 +58,7 @@ public class Shooter : PlayerObjects
         PlaySound(fireSound);
 
         // Decrement the ammo count
-        ammo--;
+        // ammo--;
     }
 
     private void PlaySound(AudioClip clip)
@@ -66,4 +68,6 @@ public class Shooter : PlayerObjects
             audioSource.PlayOneShot(clip);
         }
     }
+
+
 }

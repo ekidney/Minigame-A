@@ -5,7 +5,8 @@ using UnityEngine;
 public class Damageable : GameThings
 {
     // The maximum health of the object
-    public int maxHealth = 100;
+    public int maxHealth = 5;
+
 
     // The current health of the object
     public int health;
@@ -19,6 +20,9 @@ public class Damageable : GameThings
     // The audio source component
     private AudioSource audioSource;
 
+
+
+
     private void Start()
     {
         // Set the object's initial health
@@ -26,6 +30,7 @@ public class Damageable : GameThings
 
         // Get the audio source component
         audioSource = GetComponent<AudioSource>();
+
     }
 
     public virtual void ApplyDamage(int damage)
@@ -43,15 +48,25 @@ public class Damageable : GameThings
             PlaySound(deathSound);
 
             // Destroy the object
-            Destroy(gameObject);
+            killObject();
+
         }
+
     }
 
-    private void PlaySound(AudioClip clip)
+    public void PlaySound(AudioClip clip)
     {
         if (clip != null)
         {
             audioSource.PlayOneShot(clip);
         }
+    }
+
+
+
+
+    public virtual void killObject()
+    {
+        Destroy(gameObject);
     }
 }

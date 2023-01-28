@@ -7,6 +7,25 @@ public class GameFaceManager : MonoBehaviour
 
     public static GameFaceManager Instance;
     private newRoom _usersRoom;
+    public bool initializeMinigame;
+
+
+
+    private float m_userExp = 0;
+
+    
+    public float userExp 
+    {
+        get { return m_userExp; } // getter returns backing field
+        set { m_userExp = value; } // setter uses backing field
+    }
+
+    private void Start()
+    {
+        
+
+    }
+
 
 
     private void Awake()
@@ -21,9 +40,6 @@ public class GameFaceManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
-    {
 
-    }
 
 }
