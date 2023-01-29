@@ -5,12 +5,12 @@ using UnityEngine;
 // INHERITANCE
 public class Target : Damageable
 {
-    public float experienceWorth; 
+    public float experiencePoints; 
     // POLYMORPHISM
     public override void killObject()
     {
         PlaySound(deathSound);
-        GiveExperience(experienceWorth);
+        GiveExperience(experiencePoints);
         Destroy(gameObject);
 
 

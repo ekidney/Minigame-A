@@ -18,7 +18,7 @@ public class Damageable : GameThings
     public AudioClip deathSound;
 
     // The audio source component
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
 
 
