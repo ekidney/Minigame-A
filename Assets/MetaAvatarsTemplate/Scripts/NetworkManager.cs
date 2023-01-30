@@ -29,7 +29,7 @@ namespace Chiligames.MetaAvatarsPun
             ConnectToMaster();
         }
 
-        public void ConnectToMaster()
+        public virtual void ConnectToMaster()
         {
             PhotonNetwork.OfflineMode = false; //true would "fake" an online connection
             PhotonNetwork.NickName = "PlayerName"; //we can use a input to change this 
@@ -54,7 +54,7 @@ namespace Chiligames.MetaAvatarsPun
             ConnectToRoom();
         }
 
-        public void ConnectToRoom()
+        public virtual void ConnectToRoom()
         {
             if (!PhotonNetwork.IsConnected)
                 return;

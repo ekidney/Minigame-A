@@ -10,16 +10,17 @@ public class KeyboardManager : MonoBehaviour
     [SerializeField]
     public string beingTyped;
     public int maxEntryLength = 9;
-    public GameObject gameMenuUI, keyboard, createRoomButton, joinRoomButton, infoField;
-    private string currentEntry =""; 
+    public GameObject gameMenuUI, keyboard, createRoomButton, joinRoomButton, infoField, homeButton;
+    public string currentEntry =""; 
     public Text textDisplay, inputField;
-    public Button myButton;
+    private menuNetworkManager _menuNetworkManager;
 
     // Start is called before the first frame update
     void Start()
     {
         //myButton.onClick.AddListener(onCreateRoom);
         textDisplay.text = currentEntry;
+        _menuNetworkManager = GetComponent<menuNetworkManager>();
     }
 
     // Update is called once per frame
@@ -32,13 +33,36 @@ public class KeyboardManager : MonoBehaviour
 
     public void onCreateRoom()
     {
+        joinRoomButton.SetActive(false);
+        homeButton.SetActive(true);
         Debug.Log("create");
+
         if (!keyboard.activeInHierarchy)
             {
                 keyboard.SetActive(true);
             }
+
     }
 
+    public void onJoinRoom()
+    {
+        createRoomButton.SetActive(false);
+        homeButton.SetActive(true);
+        keyboard.SetActive(true);
+        Debug.Log("create");
+        if (!keyboard.activeInHierarchy)
+        {
+            keyboard.SetActive(true);
+        }
+    }
+
+    public void returnToHome()
+    {
+        createRoomButton.SetActive(true);
+        joinRoomButton.SetActive(true);
+        homeButton.SetActive(false);
+        keyboard.SetActive(false);
+    }
     public void onLetterSelect(string thisButton)
     {
 
@@ -56,7 +80,7 @@ public class KeyboardManager : MonoBehaviour
             if (currentEntryLength == 0) { return; }
             else if (currentEntryLength == 1)
             {
-                currentEntry = "";
+                currentEntry = string.Empty;
                 updateInput(currentEntry);
                 return;
             }
@@ -77,7 +101,12 @@ public class KeyboardManager : MonoBehaviour
     public void onEnterSelect(string thisButton)
     {
         Debug.Log(thisButton);
-        currentEntry = currentEntry + thisButton;
+        if (currentEntry == string.Empty)
+        {
+            return;
+        }
+        _menuNetworkManager.ConnectToMaster();
+
     }
 
     public void updateInput(string text)
