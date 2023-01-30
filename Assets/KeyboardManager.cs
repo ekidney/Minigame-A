@@ -13,14 +13,13 @@ public class KeyboardManager : MonoBehaviour
     public GameObject gameMenuUI, keyboard, createRoomButton, joinRoomButton, infoField, homeButton;
     public string currentEntry =""; 
     public Text textDisplay, inputField;
-    private menuNetworkManager _menuNetworkManager;
+    public menuNetworkManager _menuNetworkManager;
 
     // Start is called before the first frame update
     void Start()
     {
         //myButton.onClick.AddListener(onCreateRoom);
         textDisplay.text = currentEntry;
-        _menuNetworkManager = GetComponent<menuNetworkManager>();
     }
 
     // Update is called once per frame

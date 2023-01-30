@@ -5,11 +5,12 @@ using Photon.Pun;
 using Photon.Realtime;
 using Chiligames.MetaAvatarsPun;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class menuNetworkManager : NetworkManager
 {
     public Text infoText;
-    private KeyboardManager thisKeyboardManager;
+    public KeyboardManager thisKeyboardManager;
 
 
     // Start is called before the first frame update
@@ -63,6 +64,7 @@ public class menuNetworkManager : NetworkManager
         base.OnJoinedRoom();
         infoText.text = "Joining room...";
         Debug.Log("Master: " + PhotonNetwork.IsMasterClient + " | Players In Room: " + PhotonNetwork.CurrentRoom.PlayerCount + " | RoomName: " + PhotonNetwork.CurrentRoom.Name + " Region: " + PhotonNetwork.CloudRegion);
+        SceneManager.LoadScene(1);
     }
 
 }
