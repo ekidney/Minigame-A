@@ -9,6 +9,8 @@ public class GameFaceManager : MonoBehaviour
     private newRoom _usersRoom;
     public bool initializeMinigame;
 
+    [SerializeField]
+    public string roomName;
 
 
     private float m_userExp = 0;

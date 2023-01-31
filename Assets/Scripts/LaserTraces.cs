@@ -36,7 +36,7 @@ public class LaserTraces : PlayerObjects
     {
         // Move the bullet
         rb.MovePosition(transform.position + direction * speed * Time.deltaTime);
-        Debug.Log("lifetiume "+lifetime);
+        
     }
 
     private void OnCollisionEnter(Collision collision)

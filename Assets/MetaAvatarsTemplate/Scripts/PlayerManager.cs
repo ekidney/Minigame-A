@@ -124,7 +124,7 @@ namespace Chiligames.MetaAvatarsPun
                 {
                     yield return null;
                 }
-                //Avatar spawning and seting its parent to be the OVR Camera Rig.
+                //Avatar spawning and setting its parent to be the OVR Camera Rig.
                 myAvatarEntity = PhotonNetwork.Instantiate(avatarPrefab.name, OVRCameraRig.transform.position, OVRCameraRig.transform.rotation);
             }
             myAvatarEntity.transform.SetParent(OVRCameraRig.transform);

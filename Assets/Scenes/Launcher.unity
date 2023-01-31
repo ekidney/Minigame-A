@@ -2700,7 +2700,6 @@ GameObject:
   m_Component:
   - component: {fileID: 689948243}
   - component: {fileID: 689948244}
-  - component: {fileID: 689948242}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -2708,20 +2707,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &689948242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 689948241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36e84e658bcb43f4a8a702e58ab31f0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  infoText: {fileID: 962107838}
-  thisKeyboardManager: {fileID: 8330688382173866438}
 --- !u!4 &689948243
 Transform:
   m_ObjectHideFlags: 0
@@ -2749,6 +2734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initializeMinigame: 0
+  roomName: 
 --- !u!1 &705022907
 GameObject:
   m_ObjectHideFlags: 0
@@ -3488,7 +3474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &909987742
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3503,10 +3489,10 @@ RectTransform:
   m_Father: {fileID: 683400207379704465}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 376.3, y: -89.990005}
+  m_SizeDelta: {x: 730.6, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &909987743
 MonoBehaviour:
@@ -3541,7 +3527,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Please create or join a room PLEASE
 --- !u!222 &909987744
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5384,7 +5370,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 465.08, y: 59.1}
+  m_SizeDelta: {x: 274.1, y: 98.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1282435319
 MonoBehaviour:
@@ -5965,7 +5951,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: baa48e6f6164c6f4cb8cf28071e996e5, type: 3}
-    m_FontSize: 38
+    m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -5975,8 +5961,8 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: CREATE ROOM
+    m_LineSpacing: 1.48
+  m_Text: CREATE OR JOIN ROOM
 --- !u!222 &1445429933
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6003,7 +5989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1482962303
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6019,9 +6005,9 @@ RectTransform:
   m_Father: {fileID: 74142277}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 378.8, y: -108.399994}
   m_SizeDelta: {x: 376.2, y: 59.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1482962304
@@ -12077,7 +12063,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 643ea11cdee77114bbbc3dde0b41159b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14625,7 +14611,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <i><color=red>Alpha</color> 0.01.1</i>
+  m_text: <i><color=red>Alpha</color> 0.102</i>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16043,6 +16029,7 @@ MonoBehaviour:
   currentEntry: 
   textDisplay: {fileID: 671594848}
   inputField: {fileID: 0}
+  _networkManager: {fileID: 0}
 --- !u!224 &8335941582450220712
 RectTransform:
   m_ObjectHideFlags: 0

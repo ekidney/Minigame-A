@@ -11,20 +11,26 @@ public class menuNetworkManager : NetworkManager
 {
     public Text infoText;
     public KeyboardManager thisKeyboardManager;
+    
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        thisKeyboardManager = GetComponent<KeyboardManager>();
 
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private void Awake()
+        {
+            if (instance != null && instance != this)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                instance = this;
+            }
+        }
+
+    
+
+
 
     public override void ConnectToMaster()
     {
@@ -36,12 +42,14 @@ public class menuNetworkManager : NetworkManager
 
         //PhotonNetwork.ConnectToMaster(ip, port, appid); //manual connection
         PhotonNetwork.ConnectUsingSettings(); //automatic connection based on the config file
+        Debug.Log("connecting using settings");
     }
 
     public override void OnConnectedToMaster()
     {
         base.OnConnectedToMaster();
         infoText.text = "Connected!";
+        Debug.Log("connected to master");
         ConnectToRoom();
     }
 
@@ -52,10 +60,10 @@ public class menuNetworkManager : NetworkManager
 
         RoomOptions roomOptions = new RoomOptions();
         //Room max is set to 10, as there are 10 spawning point locations. Max Pun2 FREE amount of users in a room can be set to 20.
-        roomOptions.MaxPlayers = 4;
+        roomOptions.MaxPlayers = 10;
         //The name of the room can be changed here, or randomized.
         string roomName = thisKeyboardManager.currentEntry;
-        infoText.text = "CREATING ROOM " + roomName;
+        infoText.text = "CREATING " + roomName;
         PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);
     }
 

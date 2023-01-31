@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Chiligames.MetaAvatarsPun;
+using UnityEngine.SceneManagement;
 
 public class KeyboardManager : MonoBehaviour
 {
@@ -13,11 +15,23 @@ public class KeyboardManager : MonoBehaviour
     public GameObject gameMenuUI, keyboard, createRoomButton, joinRoomButton, infoField, homeButton;
     public string currentEntry =""; 
     public Text textDisplay, inputField;
-    public menuNetworkManager _menuNetworkManager;
+    public NetworkManager _networkManager;
 
+
+    void Awakew()
+    {
+        //myButton.onClick.AddListener(onCreateRoom);
+        textDisplay.text = currentEntry;
+    }
     // Start is called before the first frame update
     void Start()
     {
+        createRoomButton.SetActive(true);
+        homeButton.SetActive(false);
+        keyboard.SetActive(false);
+        joinRoomButton.SetActive(false);
+
+
         //myButton.onClick.AddListener(onCreateRoom);
         textDisplay.text = currentEntry;
     }
@@ -104,7 +118,9 @@ public class KeyboardManager : MonoBehaviour
         {
             return;
         }
-        _menuNetworkManager.ConnectToMaster();
+        GameFaceManager.Instance.roomName = currentEntry;
+        SceneManager.LoadScene(1);
+        
 
     }
 

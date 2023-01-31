@@ -8,9 +8,13 @@ using System.Collections;
 //
 namespace Chiligames.MetaAvatarsPun
 {
+    
+
     public class NetworkManager : MonoBehaviourPunCallbacks
     {
         public static NetworkManager instance;
+        public string thisRoomName ="Dev Room";
+        
 
         private void Awake()
         {
@@ -26,11 +30,21 @@ namespace Chiligames.MetaAvatarsPun
 
         private void Start()
         {
-            ConnectToMaster();
+            
+            if (GameFaceManager.Instance.roomName != string.Empty)
+            {
+                thisRoomName = GameFaceManager.Instance.roomName;
+
+            }
+                 ConnectToMaster();
+
+             
+
         }
 
         public virtual void ConnectToMaster()
         {
+            Debug.Log("connecting to master...");
             PhotonNetwork.OfflineMode = false; //true would "fake" an online connection
             PhotonNetwork.NickName = "PlayerName"; //we can use a input to change this 
             PhotonNetwork.AutomaticallySyncScene = true; //To call PhotonNetwork.LoadLevel()
@@ -63,12 +77,21 @@ namespace Chiligames.MetaAvatarsPun
             //Room max is set to 10, as there are 10 spawning point locations. Max Pun2 FREE amount of users in a room can be set to 20.
             roomOptions.MaxPlayers = 10;
             //The name of the room can be changed here, or randomized.
-            PhotonNetwork.JoinOrCreateRoom("MetaAvatars", roomOptions, TypedLobby.Default);
+            
+            PhotonNetwork.JoinOrCreateRoom(thisRoomName, roomOptions, TypedLobby.Default);
         }
 
         public override void OnJoinedRoom()
         {
-            base.OnJoinedRoom();
+           
+                base.OnJoinedRoom();
+
+            //load arena if in menu
+            if (SceneManager.GetActiveScene().name == "Launcher")
+            {
+                SceneManager.LoadScene(1);
+            }
+
             Debug.Log("Master: " + PhotonNetwork.IsMasterClient + " | Players In Room: " + PhotonNetwork.CurrentRoom.PlayerCount + " | RoomName: " + PhotonNetwork.CurrentRoom.Name + " Region: " + PhotonNetwork.CloudRegion);
         }
 
