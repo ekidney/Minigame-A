@@ -28,7 +28,7 @@ public class Shooter : PlayerObjects
 
     private void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("XRI_Right_TriggerButton") || Input.GetButton("XRI_Left_TriggerButton"))
         {
             Debug.Log("fire input" + Time.time +" next " + nextFireTime);
             if (ammo > 0 && Time.time >= nextFireTime)

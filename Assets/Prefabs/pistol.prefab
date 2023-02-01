@@ -258,9 +258,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_allowOffhandGrab: 1
   m_snapPosition: 0
-  m_snapOrientation: 0
+  m_snapOrientation: 1
   m_snapOffset: {fileID: 0}
-  m_grabPoints: []
+  m_grabPoints:
+  - {fileID: 0}
   throwMultiplier: 1
 --- !u!114 &5437705490001797102
 MonoBehaviour:
