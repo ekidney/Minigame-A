@@ -72,7 +72,7 @@ public class KeyboardManager : MonoBehaviour
     public void returnToHome()
     {
         createRoomButton.SetActive(true);
-        joinRoomButton.SetActive(true);
+        joinRoomButton.SetActive(false);
         homeButton.SetActive(false);
         keyboard.SetActive(false);
     }
