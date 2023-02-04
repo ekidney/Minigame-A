@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Chiligames.MetaAvatarsPun;
 
 public class Shooter : PlayerObjects
 {
@@ -17,6 +18,7 @@ public class Shooter : PlayerObjects
 
     // The audio source component
     private AudioSource audioSource;
+    private PunOVRGrabbable thisPunOVRGrabbable;
     public AudioClip fireSound, dryFireSound;
     private float nextFireTime;
 
@@ -24,11 +26,12 @@ public class Shooter : PlayerObjects
     {
         // Get the audio source component
         audioSource = GetComponent<AudioSource>();
+        thisPunOVRGrabbable = GetComponent<PunOVRGrabbable>();
     }
 
     private void Update()
     {
-        if (Input.GetButton("XRI_Right_TriggerButton") || Input.GetButton("XRI_Left_TriggerButton"))
+        if ((Input.GetButton("XRI_Right_TriggerButton") || Input.GetButton("XRI_Left_TriggerButton")) && thisPunOVRGrabbable.isGrabbed)
         {
             Debug.Log("fire input" + Time.time +" next " + nextFireTime);
             if (ammo > 0 && Time.time >= nextFireTime)

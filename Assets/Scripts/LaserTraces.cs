@@ -41,13 +41,14 @@ public class LaserTraces : PlayerObjects
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("collision");
-        // Check if the bullet hit an object with a "Damageable" tag
+        Debug.LogError("collision");
+         //Check if the bullet hit an object with a "Damageable" tag
         if ((collision.collider.CompareTag("Damageable")))
         {
             // Apply damage to the object
             collision.gameObject.GetComponent<Damageable>().ApplyDamage(damage);
         }
+
 
 
         // Destroy the bullet

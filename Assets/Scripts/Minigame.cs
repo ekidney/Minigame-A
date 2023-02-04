@@ -18,7 +18,11 @@ public class Minigame : MonoBehaviour
 
     public virtual void OnLose() { }
 
-
+    public bool GetRandomBool()
+    {
+        int randomNumber = Random.Range(0, 100);
+        return (randomNumber % 2 == 0) ? true : false;
+    }
 
 
 }
