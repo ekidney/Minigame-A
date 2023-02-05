@@ -83,6 +83,12 @@ public class Damageable : GameThings
         MeshRenderer thisMesh = GetComponent<MeshRenderer>();
         thisMesh.enabled = false; 
         PlaySound(deathSound, audioSource);
-        //Destroy(gameObject, 5f);
+        Destroy(gameObject, 5f);
+    }
+
+    public virtual void SpawnAnimation()
+    {
+        Material thisMaterial = GetComponent<Material>();
+
     }
 }

@@ -11,6 +11,11 @@ public class Target : Damageable
     public float spinMultiplier = 100f;
     public float speed = 1f;
     public int directionMultiplier;
+    private bool hasRun;
+    private void Awake()
+    {
+        
+    }
 
     void Update()
     {
@@ -25,4 +30,27 @@ public class Target : Damageable
         
     }
 
+
+    public override void killObject()
+    {
+        if (!hasRun)
+        {
+            hasRun = true;
+            MeshRenderer thisMesh = GetComponent<MeshRenderer>();
+            thisMesh.enabled = false;
+            PlaySound(deathSound, audioSource);
+            GameFaceManager.Instance.AddPoints(10);
+            GameFaceManager.Instance.killCount -= 1;
+            Debug.LogError("killed: " + gameObject.name +" // killcount: " + GameFaceManager.Instance.killCount);
+            if (GameFaceManager.Instance.killCount == 0)
+            {
+                GameFaceManager.Instance.GameOver();
+            }
+            Destroy(gameObject, 3f);
+        }
+    }
+
 }
+
+
+
