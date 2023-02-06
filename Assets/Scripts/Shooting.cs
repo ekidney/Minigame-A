@@ -13,7 +13,9 @@ public class Shooting : Minigame
     
     public float minSpeed = 0.3f, maxSpeed = 7f;
 
+    // TODO Needs to be converted to a debugger method 
     public Text showing;
+
     private AudioSource tableAudio;
     private Animator tableAnimator;
     private float distanceFromcenter;
